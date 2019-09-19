@@ -1,3 +1,6 @@
+<?php
+        include "connection.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,49 +17,67 @@
             <div class="main col-10 col-md-8 col-lg-6">
                 <ul class="nav nav-justified">
                     <li class="nav-item">
-                      <a class="nav-link" href="index.html"><h4 class="disabld">Log In</h4></a>
+                      <a class="nav-link" href="index.php"><h4 class="disabld">Log In</h4></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link actve" href="signUp.html"><h4>Sign Up</h4></a>
+                      <a class="nav-link actve" href="#"><h4>Sign Up</h4></a>
                     </li>
                 </ul><br><br>
                 <p class="text-center" >You're just a step away!<br>
                 <span class="font-weight-bold">Please fill in the required details</span>
                 </p>
                 <br><br>
-                <form>
+                <form method="POST" action="">
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="fa fa-user"></span></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Full Name">
+                        <input name="fname" required="required" type="text" class="form-control" placeholder="Full Name">
                     </div>
+
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="fa fa-envelope"></span></span>
                         </div>
-                        <input type="email" class="form-control" placeholder="Email Address">
+                        <input name="email" required="required" type="email" class="form-control" placeholder="Email Address">
                     </div>
+
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="fa fa-user"></span></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input name="username" required="required" type="text" class="form-control" placeholder="Username">
                     </div>
+
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="fa fa-lock"></span></span>
                         </div>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div><br>
-                    <button type="button">Sign up</button>
+                        <input name="password" type="password" class="form-control" required="required" placeholder="Password">
+                    </div>
+
+                    <!--<p class="clr"><a href="#">Forgot Password?</a></p>-->
+                    <br>
+                    <button name="submit1" type="submit">Sign up</button>
+
                 </form>
-                <br>    
-                <a href="index.html" class="logInLink"><p class="text-center">Already have an account?Log in</p></a>
+                <br>
+                <?php
+                   if(isset($_POST["submit1"])){
+
+        mysqli_query($conn, "INSERT INTO users VALUES('$_POST[fname]', '$_POST[email]', '$_POST[username]', '$_POST[password]')");
+                    
+                    ?>
+                    <div id="valid">
+                        <b>Registration was successful.</b>Kindly click on LOGIN to login!!
+                    </div>
+                    <?php
+                    };
+                ?>    
+                <p class="text-center clr"><a href="index.php" class="logInLink">Already have an account? <u>Log in</u></a></p>
             </div>
             <div class="col-1 col-md-2 col-lg-3"></div>   
         </div>
-        <script src="app.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
