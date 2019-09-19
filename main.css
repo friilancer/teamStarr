@@ -1,0 +1,45 @@
+.form-control{
+    border: 0px;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+}
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+.input-group-text{
+    border:none;
+    border-radius: 0;
+    background: white;  
+    border-bottom: 1px solid black; 
+}
+.actve{
+    border-bottom: 2px solid #F64072;
+}
+.disabld{
+    color:grey;
+}
+button{
+    background: #F64072;
+    color: white;
+    padding: 10px 25px;
+    border: 1px solid #F64072;    
+    width: 100%;
+}
+button:focus{
+    outline: none;
+}
+.clr{
+    color:#F64072;
+}
+a.nav-link{
+    color: black;
+    font-weight: bolder;
+}
+.main{
+    margin-top: 15vh;
+}
+form{
+    margin: 0 10vw;
+}
