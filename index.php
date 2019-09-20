@@ -28,7 +28,7 @@
                 <br><br>
                 <form method="POST" action="">
                     <div class="input-group mb-4">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend" style="height:38px;width:35.44px;">
                             <span class="input-group-text"><span class="fa fa-user"></span></span>
                         </div>
                         <input name="access" type="text" required="required" class="form-control" placeholder="Username or Email">
